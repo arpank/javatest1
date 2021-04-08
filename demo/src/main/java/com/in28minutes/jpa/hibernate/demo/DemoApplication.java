@@ -36,6 +36,7 @@ public class DemoApplication implements CommandLineRunner{
 		repository.save(new Course ("Microservices in 100 steps"));
 		System.out.println(course);
 		System.out.println(course);
+		System.out.println(course);
 		
 		studentRepository.saveStudentWithPassport();
 		
