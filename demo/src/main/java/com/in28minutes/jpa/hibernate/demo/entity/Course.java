@@ -23,7 +23,7 @@ public class Course {
 //	private LocalDateTime lastUpdatedDate;
 	//@CreationTimestamp
 	//private LocalDateTime createdDate;
-	
+	//////////
 	@OneToMany (mappedBy="course")
 	private List<Review> reviews = new ArrayList<>();
 	
@@ -33,7 +33,9 @@ public class Course {
 	public List<Student> getStudents() {
 		return students;
 	}
-
+	public void addStudent(Student student) {
+		this.students.add(student);
+	}
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}

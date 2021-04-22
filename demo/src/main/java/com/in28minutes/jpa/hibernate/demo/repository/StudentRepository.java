@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Passport;
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
 @Repository
@@ -72,5 +73,32 @@ public class StudentRepository {
 		em.detach(entity2);
 		entity.setName("Arpan");
 	}
+	
+	public void retrieveStudentAndCourses()
+	{
+		
+		Student student = em.find(Student.class, 20001L);
+		
+		System.out.println("Students courses are " + student.getCourses());
+		
+		Student s = new Student ("Jack11");
+		Course c = new Course ("Microservicesz");
+		Course c1 = new Course ("Microservicesz");
+		Passport p = new Passport("20222");
+		em.persist(s);
+		em.persist(c);
+		em.persist(p);
+		em.persist(c1);
+		s.addCourse(c);
+		c.addStudent(s);
+		s.addCourse(c1);
+		c1.addStudent(s);
+		s.setPassport(p);
+		em.persist(s);
+		
+		
+  
+	}
+	
 	
 }

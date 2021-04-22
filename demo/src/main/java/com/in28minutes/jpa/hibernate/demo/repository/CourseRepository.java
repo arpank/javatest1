@@ -1,5 +1,7 @@
 package com.in28minutes.jpa.hibernate.demo.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Review;
+import com.in28minutes.jpa.hibernate.demo.entity.Employee;
 @Repository
 @Transactional
 public class CourseRepository {
@@ -69,5 +72,14 @@ public class CourseRepository {
 		em.persist(review1);
 		em.persist(review2);
 	}
+	
+	 public List<Course> retrieveAllFullTimeEmployees()
+	 {
+		 return em.createQuery("select c from Course c where c.students is empty", 
+				 Course.class)
+		 .getResultList();
+		 		
+	 }
+	
 	
 }

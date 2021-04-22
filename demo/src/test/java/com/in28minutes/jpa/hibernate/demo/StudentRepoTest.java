@@ -1,5 +1,7 @@
 package com.in28minutes.jpa.hibernate.demo;
 
+import static org.junit.Assert.assertEquals;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -30,7 +32,8 @@ public class StudentRepoTest {
 	{
 		Student c = repo.findbyId(20001L);
 		System.out.println("c" + c.getPassport());
-		
+		assertEquals("Arpan Updated", c.getName());
+		 
 	 
 	}
  

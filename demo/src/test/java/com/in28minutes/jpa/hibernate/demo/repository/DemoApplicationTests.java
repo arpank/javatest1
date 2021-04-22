@@ -39,5 +39,10 @@ public class DemoApplicationTests {
 		 
 		 assertEquals("Test in 20 secs",course.getName());
 	}
-
+	@Test
+	public void contextLoads122() {
+		 Course course = repository.findbyId(10001L);
+		 
+		 assertEquals("Test in 20 secs",course.getName());
+	}
 }
